@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,6 +17,10 @@ use Illuminate\Support\Facades\Route;
     return 'welcome';
 });
 */
+
+Route::get('/',[HomeController::class,'index'])->name('home.index');
+
+
 
 Route::get('r1',function(){
     return redirect('r2');
@@ -50,5 +55,5 @@ Route::group(['prefix'=>'admin'],function(){
     });
 });
 
-Route::get('/',['as'=>'home.index','uses'=>
-    'HomeController@index']);
+/*Route::get('/',['as'=>'home.index','uses'=>
+    'HomeController@index']);*/
